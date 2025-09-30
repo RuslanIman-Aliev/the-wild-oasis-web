@@ -2,7 +2,8 @@
 
 import { useOptimistic } from "react";
 import { deleteReservation } from '../_lib/actions';
-const { default: ReservationCard } = require("./ReservationCard");
+import ReservationCard from "./ReservationCard";
+
 
 export default function ReservationList({bookings}){
   const [optimisticBookings,optimisticDelete] = useOptimistic(bookings,(curBookings,bookingId)=>{
@@ -14,6 +15,7 @@ export default function ReservationList({bookings}){
     await deleteReservation(bookingId)
     
   }
+    console.log(optimisticBookings)
   return (  
      <ul className="space-y-6">
           {optimisticBookings.map((booking) => (

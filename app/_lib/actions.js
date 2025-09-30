@@ -96,7 +96,7 @@ export async function createBooking(bookingData,formData) {
     //Object.entries(formData.entries())
   const newBooking = {
     ...bookingData,
-    guestId: session.user.id,
+    guestId: session.user.guestId,
     numGuests:Number( formData.get('numGuests')),
     observations: formData.get('observations').slice(0,1000),
     extrasPrice:0,
